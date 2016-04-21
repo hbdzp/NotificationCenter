@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">NotificationCenter</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="NotificationCenter">Notification Center</string>
+    <string name="notifications_count">dear customer,you have %1$d notifications in total!</string>
+    <string name="btn_text">Cancel All</string>
+
+</resources>
