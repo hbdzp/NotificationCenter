@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#000000" >
+
+        <ImageView
+            android:id="@+id/imageView_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/menu_up_wifi" />
+
+        <ImageView
+            android:id="@+id/imageView_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView_left"
+            android:layout_alignLeft="@+id/imageView_left"
+            android:src="@drawable/menu_down_wifi_pressed" />
+
+        <ImageView
+            android:id="@+id/imageView_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/imageView_up"
+            android:src="@drawable/menu_right_wifi_pressed" />
+
+        <ImageView
+            android:id="@+id/imageView_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imageView_up"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/menu_left_wifi_pressed" />
+
+        <ImageView
+            android:id="@+id/imageView_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/menu_ok_wifi_pressed" />
+    </RelativeLayout>
+
+</RelativeLayout>
