@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">通知中心</string>
+    <string name="action_settings">设置</string>
+    <string name="NotificationCenter">通知中心</string>
+    <string name="notifications_count">用户您好，一共有 %1$d条通知!</string>
+    <string name="btn_text">清除所有</string>
+    <string name="txt_warm_prompt">温馨提示：</string>
+    <string name="dialog_message">请开启通知访问权限</string>
+    <string name="dialog_title">通知权限</string>
+    <string name="state_noclear">不被清除</string>
+    <string name="state_ongoing">运行中</string>
+    <string name="state_autocanel">常规通知</string>
+    <string name="state_insistent">持续型通知</string>
+    <string name="state_high_priority">高优先级</string>
+    <string name="time_days">天</string>
+    <string name="time_one_day">1天</string>
+    <string name="time_hours">小时</string>
+    <string name="time_one_hour">1小时</string>
+    <string name="time_minutes">分钟</string>
+    <string name="time_one_minute">1分钟</string>
+    <string name="time_seconds">秒</string>
+    <string name="time_right_now">刚刚</string>
+    <string name="time_ago">前</string>
+    <string name="txt_warm_prompt_left">清除选中通知</string>
+    <string name="txt_warm_prompt_ok">打开应用查看详情</string>
+    <string name="access_error">系统程序被精简，无法获得权限，请打系统签名</string>
+    <string name="dialog_message_cancel_all">确定要清除所有的通知？</string>
+    <string name="dialog_title_cancel_all">注意：</string>
+    <string name="txt_left_key">方向左键：</string>
+    <string name="txt_ok_key">确定键：</string>
+</resources>

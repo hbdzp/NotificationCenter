@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:state_focused="true"><shape android:shape="rectangle">
-            <corners android:radius="5dp" />
+    <item android:state_pressed="true"><shape>
+
+            <!-- 渐变 -->
+            <gradient android:endColor="#483D8B" android:gradientRadius="50" android:startColor="#483D8B" android:type="radial" />
+            <corners android:radius="2dp" />
+            <padding android:bottom="2dp" android:left="2dp" android:right="2dp" android:top="2dp" />
         </shape></item>
-    <item android:state_focused="false"><shape android:shape="rectangle">
-            <corners android:radius="5dp" />
+    <item android:state_focused="true"><shape>
+            <gradient android:angle="270" android:endColor="#436EEE" android:startColor="#436EEE" />
+
+            <stroke android:width="2dp" android:color="#dcdcdc" />
+
+            <corners android:radius="2dp" />
+
+            <padding android:bottom="2dp" android:left="2dp" android:right="2dp" android:top="2dp" />
+        </shape></item>
+    <item><shape>
+            <solid android:color="#ABABAB" />
+
+            <stroke android:width="2dp" android:color="#fad3cf" />
+
+            <!-- 圆角 -->
+            <corners android:radius="2dp" />
+
+            <padding android:bottom="2dp" android:left="2dp" android:right="2dp" android:top="2dp" />
         </shape></item>
 
 </selector>

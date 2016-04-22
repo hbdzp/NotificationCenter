@@ -15,21 +15,21 @@
     <string name="state_autocanel">AutoCancel</string>
     <string name="state_insistent">Insistent</string>
     <string name="state_high_priority">HighPriority</string>
-    <string name="time_days"> days</string>
-    <string name="time_one_day"> 1 day</string>
-    <string name="time_hours"> hours</string>
-    <string name="time_one_hour"> 1 hour</string>
-    <string name="time_minutes"> minutes</string>
-    <string name="time_one_minute"> 1 minute</string>
-    <string name="time_seconds"> seconds</string>
-    <string name="time_right_now"> right now</string>
-    <string name="time_ago"> ago</string>
+    <string name="time_days">days</string>
+    <string name="time_one_day">1 day</string>
+    <string name="time_hours">hours</string>
+    <string name="time_one_hour">1 hour</string>
+    <string name="time_minutes">minutes</string>
+    <string name="txt_left_key">Left direction key:</string>
+    <string name="txt_ok_key">OK key:</string>
     <string name="txt_warm_prompt_left">Cancel current selected notification</string>
     <string name="txt_warm_prompt_ok">Open app to see details</string>
     <string name="access_error">System settings center has been modified.</string>
+    <string name="time_one_minute">1 minute</string>
+    <string name="time_seconds">seconds</string>
+    <string name="time_right_now">right now</string>
+    <string name="time_ago">ago</string>
     <string name="dialog_message_cancel_all">Are you sure to cancel all notifications?</string>
     <string name="dialog_title_cancel_all">Notice ：</string>
-    <string name="txt_left_key">Left direction key:</string>
-    <string name="txt_ok_key">OK key:</string>
 
 </resources>

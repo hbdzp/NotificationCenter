@@ -1,7 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background" >
+    android:background="#274571"
+    tools:context=".activities.NotificationCenterActivity" >
 
     <TextView
         android:id="@+id/title"
@@ -11,6 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
         android:text="@string/NotificationCenter"
+        android:textColor="#9ACD32"
         android:textSize="40sp" />
 
     <LinearLayout
@@ -18,100 +21,122 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/title"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="101dp"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:layout_marginTop="20dp"
-        android:background="#ffffff"
         android:orientation="vertical" >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_margin="5dp" >
+            android:background="@drawable/bg_counts" >
 
             <TextView
+                android:id="@+id/tv_counts"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
-                android:gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:gravity="center_vertical"
                 android:singleLine="true"
-                android:text="@string/notifications_count"
                 android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:textSize="25sp" />
 
             <Button
+                android:id="@+id/btn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="50dp"
-                android:background="@drawable/bg_btn"
-                android:text="@string/btn_text" >
-            </Button>
+                android:layout_marginEnd="70dp"
+                android:background="@drawable/selector_btn_bg"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:text="@string/btn_text"
+                android:textSize="19sp" />
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
             android:orientation="horizontal" >
 
             <ListView
+                android:id="@+id/lv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" >
+                android:layout_weight="4"
+                android:background="#A6A6A6"
+                android:focusable="false" >
             </ListView>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_warm_prompt"
+                android:orientation="vertical" >
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#000000" >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
 
-                    <ImageView
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/menu_up_selected" >
-                    </ImageView>
+                        android:layout_gravity="center_vertical" >
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:src="@drawable/menu_left_white_selected" >
-                    </ImageView>
+                        <LinearLayout
+                            android:id="@+id/txt_warm_prompt_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" >
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/menu_ok_selected" >
-                    </ImageView>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="@string/txt_left_key"
+                                android:textColor="#000000"
+                                android:textSize="20sp" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/menu_right_selected" >
-                    </ImageView>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="@string/txt_warm_prompt_left"
+                                android:textColor="#000000"
+                                android:textSize="20sp" />
+                        </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignBottom="true"
-                        android:src="@drawable/menu_down_white_selected" >
-                    </ImageView>
-                </RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt_warm_prompt_left"
+                            android:layout_marginTop="60dp"
+                            android:orientation="vertical" >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-                </TextView>
-            </RelativeLayout>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="@string/txt_ok_key"
+                                android:textColor="#000000"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txt_warm_prompt_left"
+                                android:layout_marginLeft="10dp"
+                                android:text="@string/txt_warm_prompt_ok"
+                                android:textColor="#000000"
+                                android:textSize="20sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

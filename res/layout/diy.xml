@@ -5,39 +5,38 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="#000000" >
+        android:layout_centerInParent="true" >
 
         <ImageView
             android:id="@+id/imageView_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:src="@drawable/menu_up_wifi" />
+            android:src="@drawable/menu_up_wifi_pressed" />
 
         <ImageView
             android:id="@+id/imageView_down"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView_left"
-            android:layout_alignLeft="@+id/imageView_left"
+            android:layout_alignStart="@+id/imageView_left"
             android:src="@drawable/menu_down_wifi_pressed" />
 
         <ImageView
             android:id="@+id/imageView_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/imageView_up"
             android:layout_alignParentTop="true"
-            android:layout_alignRight="@+id/imageView_up"
             android:src="@drawable/menu_right_wifi_pressed" />
 
         <ImageView
             android:id="@+id/imageView_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/imageView_up"
             android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/imageView_up"
             android:src="@drawable/menu_left_wifi_pressed" />
 
         <ImageView
@@ -45,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@drawable/menu_ok_wifi_pressed" />
+            android:src="@drawable/menu_ok_selected" />
     </RelativeLayout>
 
 </RelativeLayout>

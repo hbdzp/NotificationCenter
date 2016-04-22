@@ -16,11 +16,11 @@ import android.os.Message;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
-import android.util.Log;
 
 public class NotificationMonitor extends NotificationListenerService {
-	private static final String TAG = "SevenNLS";
-	private static final String TAG_PRE = "[" + NotificationMonitor.class.getSimpleName() + "] ";
+	// private static final String TAG = "SevenNLS";
+	// private static final String TAG_PRE = "[" +
+	// NotificationMonitor.class.getSimpleName() + "] ";
 	private static final int EVENT_UPDATE_CURRENT_NOS = 0;
 	public static final String ACTION_NLS_CONTROL = "com.seven.notificationlistenerdemo.NLSCONTROL";
 	public static Vector<StatusBarNotification> mCurrentNotifications = new Vector<StatusBarNotification>();
@@ -43,6 +43,7 @@ public class NotificationMonitor extends NotificationListenerService {
 			}
 		}
 	};
+
 	class CancelNotificationReceiver extends BroadcastReceiver {
 
 		@Override
@@ -59,12 +60,13 @@ public class NotificationMonitor extends NotificationListenerService {
 						}
 					} else if (TextUtils.equals(command, "cancel_all")) {
 						cancelAllNotifications();
-					}else if (TextUtils.equals(command, "cancel_position")) {
+					} else if (TextUtils.equals(command, "cancel_position")) {
 						int position = intent.getIntExtra("position", -1);
-//						Log.i(TAG, "~~~"+position+"~~~");
-						if (position>=0) {
-							StatusBarNotification sbAtPosition=getCurrentNotifications().get(position);
-							cancelNotification(sbAtPosition.getPackageName(), sbAtPosition.getTag(), sbAtPosition.getId());
+						// Log.i(TAG, "~~~"+position+"~~~");
+						if (position >= 0) {
+							StatusBarNotification sbAtPosition = getCurrentNotifications().get(position);
+							cancelNotification(sbAtPosition.getPackageName(), sbAtPosition.getTag(),
+									sbAtPosition.getId());
 						}
 					}
 				}
@@ -102,18 +104,27 @@ public class NotificationMonitor extends NotificationListenerService {
 		logNLS("onNotificationPosted...");
 		logNLS("have " + mCurrentNotificationsCounts + " active notifications");
 		mPostedNotification = sbn;
+		if (sbn.getPackageName().equals("com.android.systemui")) {
+			cancelNotification(sbn.getPackageName(), sbn.getTag(), sbn.getId());
+		}
+		/*
+		 * Bundle extras = sbn.getNotification().extras; String
+		 * notificationTitle = extras.getString(Notification.EXTRA_TITLE);
+		 * Bitmap notificationLargeIcon = ((Bitmap)
+		 * extras.getParcelable(Notification.EXTRA_LARGE_ICON)); Bitmap
+		 * notificationSmallIcon = ((Bitmap)
+		 * extras.getParcelable(Notification.EXTRA_SMALL_ICON)); CharSequence
+		 * notificationText = extras.getCharSequence(Notification.EXTRA_TEXT);
+		 * CharSequence notificationSubText =
+		 * extras.getCharSequence(Notification.EXTRA_SUB_TEXT);
+		 * Log.i("SevenNLS", "notificationTitle:" + notificationTitle);
+		 * Log.i("SevenNLS", "notificationText:" + notificationText);
+		 * Log.i("SevenNLS", "notificationSubText:" + notificationSubText);
+		 * Log.i("SevenNLS", "notificationLargeIcon is null:" +
+		 * (notificationLargeIcon == null)); Log.i("SevenNLS",
+		 * "notificationSmallIcon is null:" + (notificationSmallIcon == null));
+		 */
 		updateCurrentNotifications();
-	/*	Bundle extras = sbn.getNotification().extras;
-		String notificationTitle = extras.getString(Notification.EXTRA_TITLE);
-		Bitmap notificationLargeIcon = ((Bitmap) extras.getParcelable(Notification.EXTRA_LARGE_ICON));
-		Bitmap notificationSmallIcon = ((Bitmap) extras.getParcelable(Notification.EXTRA_SMALL_ICON));
-		CharSequence notificationText = extras.getCharSequence(Notification.EXTRA_TEXT);
-		CharSequence notificationSubText = extras.getCharSequence(Notification.EXTRA_SUB_TEXT);
-		Log.i("SevenNLS", "notificationTitle:" + notificationTitle);
-		Log.i("SevenNLS", "notificationText:" + notificationText);
-		Log.i("SevenNLS", "notificationSubText:" + notificationSubText);
-		Log.i("SevenNLS", "notificationLargeIcon is null:" + (notificationLargeIcon == null));
-		Log.i("SevenNLS", "notificationSmallIcon is null:" + (notificationSmallIcon == null));*/
 	}
 
 	@Override
@@ -126,7 +137,11 @@ public class NotificationMonitor extends NotificationListenerService {
 
 	private void updateCurrentNotifications() {
 		try {
-			 activeNos = getActiveNotifications();
+			activeNos = getActiveNotifications();
+			if (activeNos.length >= 50) {
+				StatusBarNotification sbnn = getCurrentNotifications().get(mCurrentNotificationsCounts - 1);
+				cancelNotification(sbnn.getPackageName(), sbnn.getTag(), sbnn.getId());
+			}
 		} catch (Exception e) {
 			logNLS("Should not be here!!");
 			e.printStackTrace();
@@ -135,8 +150,11 @@ public class NotificationMonitor extends NotificationListenerService {
 	}
 
 	public static Vector<StatusBarNotification> getCurrentNotifications() {
-		if (mCurrentNotifications!=null) {
+		if (mCurrentNotifications != null) {
 			mCurrentNotifications.removeAllElements();
+		}
+		if (activeNos == null) {
+			return null;
 		}
 		for (int i = 0; i < activeNos.length; i++) {
 			mCurrentNotifications.add(activeNos[i]);
@@ -151,7 +169,7 @@ public class NotificationMonitor extends NotificationListenerService {
 	}
 
 	private static void logNLS(Object object) {
-//		Log.i(TAG, TAG_PRE + object);
+		// Log.i(TAG, TAG_PRE + object);
 	}
 
 	public void onChanged() {
